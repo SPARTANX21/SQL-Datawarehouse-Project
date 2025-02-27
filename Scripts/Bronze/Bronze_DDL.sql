@@ -57,7 +57,7 @@ IF OBJECT_ID('Bronze.erp_loc_a101', 'U') IS NOT NULL
 	DROP TABLE Bronze.erp_loc_a101;
 CREATE TABLE Bronze.erp_loc_a101(
 	cid nvarchar(50),
-	cntry nvarchar(5)
+	cntry nvarchar(50)
 );
 GO
 
