@@ -27,6 +27,11 @@ select distinct prd_nm
 from Silver.crm_prd_info
 where prd_nm is null;
 
+-- PRD Table
+select prd_id, count(*)
+from Bronze.crm_prd_info
+group by prd_id
+having count(*) > 1 OR prd_id is null;
 
 -- checking for nulls or negative values in prd_cost
 -- need to handel null 
@@ -80,3 +85,29 @@ select sls_sales,
 sls_quantity,sls_price
 from Silver.crm_sales_details
 where sls_sales!= sls_quantity * sls_price
+
+-- -------------------------------------------------------------------------
+-- ERP table1 - erp_cust_az12
+
+-- Checking bdate out of range
+
+select distinct gen 
+from Bronze.erp_cust_az12;
+
+
+-- ERP Loc
+
+select distinct cntry
+from Bronze.erp_loc_a101;
+
+
+-- --------------------------------------------------------------
+-- Loading px_cat_g1v2
+
+-- Checnking for empyt spaces
+select * from Bronze.erp_px_cat_g1v2
+where cat != TRIM(cat) OR subcat != TRIM(subcat) OR maintenance != TRIM(maintenance);
+
+-- Data Standradization and consistency
+select distinct 
+cat from Bronze.erp_px_cat_g1v2;
