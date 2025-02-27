@@ -1,0 +1,1 @@
+EXEC Bronze.load_bronze;
